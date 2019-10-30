@@ -1,7 +1,7 @@
-const conditions = require('../src/type/conditions');
-const valueTypes = require('../src/type/value');
-const currencyHandler = require('../src/util/currencyHandler');
-const castAndFilter = require('../src/util/castAndFilter');
+const conditions = require('../type/conditions');
+const valueTypes = require('../type/value');
+const currencyHandler = require('../util/currencyHandler');
+const castAndFilter = require('../util/castAndFilter');
 
 function between(array, query){
     return array.filter((e)=> {
