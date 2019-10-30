@@ -1,7 +1,7 @@
 const conditions = require('../type/conditions');
 const valueTypes = require('../type/value');
 const currencyHandler = require('../util/currencyHandler');
-const castAndFilter = require('../util/castAndFilter');
+const textCheckandRun = require('../util/textCheckandRun');
 
 function between(array, query){
     return array.filter((e)=> {
@@ -51,7 +51,9 @@ function equalOrNot(array, query){
         return queryValue === dataValue;
     }
     
-    return castAndFilter(array, query, condition);
+    return array.filter((e)=> {
+        return textCheckandRun(e[query.key], query, condition);
+    })
 }
 
 
@@ -60,7 +62,9 @@ function includesOrNot(array, query){
         return dataValue.includes(queryValue);
     }
 
-    return castAndFilter(array, query, condition);
+    return array.filter((e)=> {
+        return textCheckandRun(e[query.key], query, condition);
+    })
 }
 
 module.exports = {

@@ -3,9 +3,9 @@ const valueTypes = require('../src/type/value');
 
 const mockQuery = [{
     key: 'name',
-    values: ['ted'],
+    values: ['ted3'],
     type: valueTypes.TEXT,
-    condition: conditions.INCLUDES.label
+    condition: conditions.EQUAL.label
 },
 {
     key: 'salary',
