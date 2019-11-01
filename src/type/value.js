@@ -1,7 +1,7 @@
 const valueTypes = {
     TEXT: 'text',
     NUMBER: 'number',
-    currency: 'currency'
+    CURRENCY: 'currency'
 }
 
 module.exports = valueTypes

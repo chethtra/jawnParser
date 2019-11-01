@@ -1,10 +1,10 @@
 const valueTypes = require('./value');
-const allTypes = [valueTypes.NUMBER, valueTypes.TEXT, valueTypes.BOOLEAN, valueTypes.currency];
+const allTypes = [valueTypes.NUMBER, valueTypes.TEXT, valueTypes.currency];
 const numericalTypes = [valueTypes.NUMBER, valueTypes.currency];
 
 const conditions = {
     BEWTEEN: {
-        name: 'between',
+        label: 'between',
         restrictions: {
             types: numericalTypes,
             maxValueSize: 2,

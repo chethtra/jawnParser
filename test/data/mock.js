@@ -1,7 +1,7 @@
-const conditions = require('../src/type/conditions');
-const valueTypes = require('../src/type/value');
+const conditions = require('../../src/type/conditions');
+const valueTypes = require('../../src/type/value');
 
-const mockQuery = [{
+const query = [{
     key: 'name',
     values: ['ted'],
     type: valueTypes.TEXT,
@@ -15,7 +15,7 @@ const mockQuery = [{
 }];
 
 
-const mockData = [
+const data = [
     {
         name: 'ted1',
         age: 5,
@@ -49,5 +49,5 @@ const mockData = [
 
 
 module.exports = {
-    mockData, mockQuery
+    data, query
 }
