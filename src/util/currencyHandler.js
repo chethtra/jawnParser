@@ -5,7 +5,7 @@ function convertToFloat(currencyValues){
     return currencyValues.map((currency)=>parseFloat(regrex.currency.exec(currency)[0]));
 }
 
-function runSingleQueryValueCondition (query, arrayValue, condition) { 
+function runCondition (query, arrayValue, condition) { 
     let queryValue = query.values[0];
 
     if(query.type === valueTypes.currency){
@@ -17,5 +17,5 @@ function runSingleQueryValueCondition (query, arrayValue, condition) {
 
 module.exports = {
     convertToFloat,
-    runSingleQueryValueCondition
+    runCondition
 }

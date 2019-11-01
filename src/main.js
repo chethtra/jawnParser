@@ -5,9 +5,7 @@ const filter = require('./logic/filter')
 
 function runQuery(data, queries){
     return queries.reduce((acc, query)=>{
-        const condition = query.condition.toLowerCase();
-
-        query = {...query, condition};
+        const condition = query.condition;
 
         if(condition.includes(conditions.BEWTEEN.label)){
             validateQuery(query, conditions.BEWTEEN);

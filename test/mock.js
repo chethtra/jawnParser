@@ -3,15 +3,15 @@ const valueTypes = require('../src/type/value');
 
 const mockQuery = [{
     key: 'name',
-    values: ['ted3'],
+    values: ['ted'],
     type: valueTypes.TEXT,
-    condition: conditions.EQUAL.label
+    condition: conditions.INCLUDES.label
 },
 {
     key: 'salary',
     values: ['$50.00'],
     type: valueTypes.currency,
-    condition: conditions.LESSTHAN.label
+    condition: conditions.LESSTHAN.inclusiveLabel
 }];
 
 

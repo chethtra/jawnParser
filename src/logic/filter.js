@@ -1,7 +1,7 @@
 const conditions = require('../type/conditions');
 const valueTypes = require('../type/value');
 const currencyHandler = require('../util/currencyHandler');
-const textCheckandRun = require('../util/textCheckandRun');
+const inclusionHandler = require('../util/inclusionHandler');
 
 function between(array, query){
     return array.filter((e)=> {
@@ -17,18 +17,13 @@ function between(array, query){
     });
 }
 
-
 function greaterThanOrEqual(array, query){
     return array.filter((e)=> {
         function condition(queryValue, arrayValue){
-            if(query.condition.includes('equal')){
-                return queryValue <= arrayValue;
-            }
-            
-            return queryValue < arrayValue;
+            return (query.condition.includes('equal')) ? queryValue <= arrayValue : queryValue < arrayValue;
         }
 
-        return currencyHandler.runSingleQueryValueCondition(query, e[query.key], condition);
+        return currencyHandler.runCondition(query, e[query.key], condition);
     });
 }
 
@@ -42,7 +37,7 @@ function lessThanOrEqual(array, query){
             return queryValue > arrayValue;
         }
         
-        return currencyHandler.runSingleQueryValueCondition(query, e[query.key], condition);
+        return currencyHandler.runCondition(query, e[query.key], condition);
     });
 }
 
@@ -52,7 +47,7 @@ function equalOrNot(array, query){
     }
     
     return array.filter((e)=> {
-        return textCheckandRun(e[query.key], query, condition);
+        return inclusionHandler(e[query.key], query, condition);
     })
 }
 
@@ -63,7 +58,7 @@ function includesOrNot(array, query){
     }
 
     return array.filter((e)=> {
-        return textCheckandRun(e[query.key], query, condition);
+        return inclusionHandler(e[query.key], query, condition);
     })
 }
 
